@@ -50,12 +50,14 @@ const list = new ListTemplate(ul)
 
 form.addEventListener('submit', (e:Event) => {
     e.preventDefault();
+    
+    let values:[string,string,number] = [tofrom.value,details.value,amount.valueAsNumber]
 
     let doc:HasFormatter
     if (type.value === 'invoice'){
-        doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber)
+        doc = new Invoice(...values)
     }else{
-        doc = new Payment(tofrom.value,details.value,amount.valueAsNumber)
+        doc = new Payment(...values)
     }
 
     list.render(doc,type.value,'end')
@@ -63,18 +65,10 @@ form.addEventListener('submit', (e:Event) => {
 
 
 
-//ENUMS
-enum ResourceType {BOOK,AUTHOR,FILM,DIRECTOR,PERSON}
+//tuples
 
-interface Resource<T>{
-    uid: number;
-    resourceType: ResourceType;
-    data : T
-}
-
-const docOne: Resource<string> = {
-    uid : 1,
-    resourceType : ResourceType.DIRECTOR,  //it gives a particualr no(index) for that resource type not the resource name in enum
-    data: 'shaun'
-}
-
+//the type of element at a particular index is fixed
+//this is diff from arrays
+let  tup:[string,number,boolean] = ['ryu',25,true]
+// tup[0] = true  (invalid)
+tup[1] = 10  //valid
