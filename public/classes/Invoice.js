@@ -1,5 +1,5 @@
 export class Invoice {
-    //using access specifier we can define the class varibales directly inside constructor
+    //our class must have things spepcified in HasFormatter
     constructor(client, details, amount) {
         this.client = client;
         this.details = details;
