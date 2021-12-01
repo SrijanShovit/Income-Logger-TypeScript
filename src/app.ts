@@ -1,3 +1,34 @@
+//interfaces
+//we won't create objects from it but 
+//we r just spepcifying if later a variable claims to be IsPerson 
+//then it should have following properties
+interface IsPerson{
+    name: string;
+    age: number;
+    speak(a:string):void;
+    spend(a:number):void;
+}
+
+const me:IsPerson = {
+    name:'shaun',
+    age: 30,
+    speak(text:string):void{
+        console.log(text);
+    },
+    spend(amount:number):number{
+        console.log(amount);
+        return amount;
+    },
+    // skills: {}
+}
+
+console.log(me)
+
+const greetPerson = (person:IsPerson) => {
+    console.log('hello' + person.name)
+}
+
+greetPerson(me)
 
 import {Invoice} from './classes/Invoice.js'
 
