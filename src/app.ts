@@ -62,45 +62,19 @@ form.addEventListener('submit', (e:Event) => {
 })
 
 
-//GENERICS
-//right now the function doesn't know what properties it recieved and returned with object
-//so generics help here to attach properties
-// const addUID = (obj: object) => {
-//     let uid = Math.floor(Math.random() * 100);;
-//     return {...obj,uid}
-// }
-// const addUID = <T>(obj: T) => {
-//     let uid = Math.floor(Math.random() * 100);;
-//     return {...obj,uid}
-// }
-//but even on using generics there is loss of specifying type of argument (i.e. object here)
-//so we use extends object
-// const addUID = <T extends object>(obj: T) => {
-//     let uid = Math.floor(Math.random() * 100);;
-//     return {...obj,uid}
-// }
 
-//we can be even more specific by saying we want an object that has name property
-const addUID = <T extends {name:string}>(obj: T) => {
-    let uid = Math.floor(Math.random() * 100);;
-    return {...obj,uid}
-}
-let docOne = addUID({name: 'yoshi', age:40})
+//ENUMS
+enum ResourceType {BOOK,AUTHOR,FILM,DIRECTOR,PERSON}
 
-console.log(docOne.uid)
-
-
-//GEnerics with intefaces
-//whatever type we'll be specifying in T we can use it
 interface Resource<T>{
-    uid:number,
-    resourceName : string,
-    data: T
+    uid: number;
+    resourceType: ResourceType;
+    data : T
 }
 
-const docThree: Resource<string> = {
+const docOne: Resource<string> = {
     uid : 1,
-    resourceName : 'person',
+    resourceType : ResourceType.DIRECTOR,  //it gives a particualr no(index) for that resource type not the resource name in enum
     data: 'shaun'
 }
 

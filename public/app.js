@@ -39,33 +39,17 @@ form.addEventListener('submit', (e) => {
     }
     list.render(doc, type.value, 'end');
 });
-//GENERICS
-//right now the function doesn't know what properties it recieved and returned with object
-//so generics help here to attach properties
-// const addUID = (obj: object) => {
-//     let uid = Math.floor(Math.random() * 100);;
-//     return {...obj,uid}
-// }
-// const addUID = <T>(obj: T) => {
-//     let uid = Math.floor(Math.random() * 100);;
-//     return {...obj,uid}
-// }
-//but even on using generics there is loss of specifying type of argument (i.e. object here)
-//so we use extends object
-// const addUID = <T extends object>(obj: T) => {
-//     let uid = Math.floor(Math.random() * 100);;
-//     return {...obj,uid}
-// }
-//we can be even more specific by saying we want an object that has name property
-const addUID = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    ;
-    return Object.assign(Object.assign({}, obj), { uid });
-};
-let docOne = addUID({ name: 'yoshi', age: 40 });
-console.log(docOne.uid);
-const docThree = {
+//ENUMS
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+const docOne = {
     uid: 1,
-    resourceName: 'person',
+    resourceType: ResourceType.DIRECTOR,
     data: 'shaun'
 };
