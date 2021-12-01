@@ -1,16 +1,4 @@
-//TS doesn't know what is going to be in our HTML file
 
-//here TS knoows what type of tag we r grabbing
-// const anchor = document.querySelector('a')!;   //! to tell TS this won't return null
-
-// console.log(anchor.href);
-
-// if (anchor){
-//     console.log((anchor))
-// }
-
-//but with class name TS doesn't know exactly what type  bcz class can be used with any HTML element
-//so use type casting
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 // console.log(form.children)
 
