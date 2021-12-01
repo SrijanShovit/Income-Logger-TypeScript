@@ -1,54 +1,45 @@
-//arrays 
+//we can without defining a value for a variable explcitily define its type
+//telling TS that is future it'll accept values of this particular type only
 
-let names = ['shuan','john','luigi']
+let character:string ;
+let age:number
+let isLoggedIn:boolean
 
-names.push('toad')
-// names = "hello"
-//Invalid
-// names.push(3)
-// names[0] = false
+//age = 'luigi
+age = 30
 
+//isLoggedIn = 25
+isLoggedIn = true
 
-let numbers = [19,8.9,7.0]
-numbers.push(57)
-// numbers.push('shaun')
-// numbers[2] = false
-
-let mixed = ['john',8.9]
-// mixed.push(false)
-mixed[0] = 1
-
-let mixed2 = [true,'john',8.9]
-mixed2.push(false)
-mixed[0] = 1
+//arrays
+let ninjas:string[]  //still not empty array so won't allow push back
+ninjas = []
+ninjas.push('shaun')
 
 
-//Objects - they should follow the structure as declared initially whenever changing
-let ninja = {
-    name : 'mario',
-    belt : 'black',
-    age : 36
+//union types for mixed data types
+let mixed:(string|number)[] = []
+mixed.push(20)
+// mixed.push(isLoggedIn)
+mixed.push('20')
+
+//uinion types to normal variable
+let uid:string|number
+uid = '123'
+uid = 123
+
+
+//objects
+let ninjaOne :object
+ninjaOne = {name: 'yoshi',age:30}
+//array is allowed bcz array is also a type of subject
+ninjaOne = ['Two']
+
+//strictly defining to be object
+let ninjaTwo : {
+    name: string,
+    age:number,
+    beltColor: string
 }
 
-ninja.age = 12
-// ninja.name = 24
-// ninja = 'mario'
-// ninja.skills = ['karate','tae-kwon-do']
-
-/*ninja = {
-    name: 'yoshi',
-    belt : 'yellow',
-}*/
-
-/*ninja = {
-    name: 'yoshi',
-    belt : 'blue',
-    age : 35,
-    skills : []
-}*/
-
-ninja = {
-    name: 'yoshi',
-    belt : 'blue',
-    age : 35
-}
+// ninjaTwo = {}
