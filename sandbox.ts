@@ -1,22 +1,54 @@
-let  man = 'mario' //TS uses type inference so we may or may not explicitily define the type
+//arrays 
+
+let names = ['shuan','john','luigi']
+
+names.push('toad')
+// names = "hello"
+//Invalid
+// names.push(3)
+// names[0] = false
 
 
-//TS uses strict types i.e. a variable having data of one type
-//can't have data of other type at a later stage
+let numbers = [19,8.9,7.0]
+numbers.push(57)
+// numbers.push('shaun')
+// numbers[2] = false
 
-let age = 30
-let isBlackBelt = false
+let mixed = ['john',8.9]
+// mixed.push(false)
+mixed[0] = 1
 
-//man = 20  //would give error
-man = 'luigi'
+let mixed2 = [true,'john',8.9]
+mixed2.push(false)
+mixed[0] = 1
 
-console.log(man)
 
-
-//specifying what type of data a function can accept
-//In this way TS helps us to handle type errors b4 compilation to JS
-const circ = (diameter: number) => {
-    return diameter * Math.PI
+//Objects - they should follow the structure as declared initially whenever changing
+let ninja = {
+    name : 'mario',
+    belt : 'black',
+    age : 36
 }
 
-console.log(circ(46.8))
+ninja.age = 12
+// ninja.name = 24
+// ninja = 'mario'
+// ninja.skills = ['karate','tae-kwon-do']
+
+/*ninja = {
+    name: 'yoshi',
+    belt : 'yellow',
+}*/
+
+/*ninja = {
+    name: 'yoshi',
+    belt : 'blue',
+    age : 35,
+    skills : []
+}*/
+
+ninja = {
+    name: 'yoshi',
+    belt : 'blue',
+    age : 35
+}

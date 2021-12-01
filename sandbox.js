@@ -1,14 +1,16 @@
-var man = 'mario'; //TS uses type inference so we may or may not explicitily define the type
-//TS uses strict types i.e. a variable having data of one type
-//can't have data of other type at a later stage
-var age = 30;
-var isBlackBelt = false;
-//man = 20  //would give error
-man = 'luigi';
-console.log(man);
-//specifying what type of data a function can accept
-//In this way TS helps us to handle type errors b4 compilation to JS
-var circ = function (diameter) {
-    return diameter * Math.PI;
-};
-console.log(circ(46.8));
+//arrays 
+var names = ['shuan', 'john', 'luigi'];
+names.push('toad');
+//Invalid
+// names.push(3)
+// names[0] = false
+var numbers = [19, 8.9, 7.0];
+numbers.push(57);
+// numbers.push('shaun')
+// numbers[2] = false
+var mixed = ['john', 8.9];
+// mixed.push(false)
+mixed[0] = 1;
+var mixed2 = [true, 'john', 8.9];
+mixed2.push(false);
+mixed[0] = 1;
