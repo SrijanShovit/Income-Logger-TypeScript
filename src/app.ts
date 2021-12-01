@@ -1,15 +1,12 @@
-//classes
-//public is default behaviour of things associated with class
-class Invoice{
-    readonly client:string;   //readonly can be read from anywhere but changed from nowhere;not even class
-    private details:string;   //private can be only within the class
-    public amount:number;
 
-    constructor(c:string,d:string,a:number){
-        this.client =c;
-        this.details =d;
-        this.amount =a;
-    }
+class Invoice{
+  //using access specifier we can define the class varibales directly inside constructor
+
+    constructor(
+        readonly client : string,
+        private details : string,
+        public amount : number
+    ){ }
 
     format(){
         return `${this.client} owes ${this.amount} for ${this.details}`
