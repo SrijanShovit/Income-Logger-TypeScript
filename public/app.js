@@ -39,3 +39,33 @@ form.addEventListener('submit', (e) => {
     }
     list.render(doc, type.value, 'end');
 });
+//GENERICS
+//right now the function doesn't know what properties it recieved and returned with object
+//so generics help here to attach properties
+// const addUID = (obj: object) => {
+//     let uid = Math.floor(Math.random() * 100);;
+//     return {...obj,uid}
+// }
+// const addUID = <T>(obj: T) => {
+//     let uid = Math.floor(Math.random() * 100);;
+//     return {...obj,uid}
+// }
+//but even on using generics there is loss of specifying type of argument (i.e. object here)
+//so we use extends object
+// const addUID = <T extends object>(obj: T) => {
+//     let uid = Math.floor(Math.random() * 100);;
+//     return {...obj,uid}
+// }
+//we can be even more specific by saying we want an object that has name property
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    ;
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docOne = addUID({ name: 'yoshi', age: 40 });
+console.log(docOne.uid);
+const docThree = {
+    uid: 1,
+    resourceName: 'person',
+    data: 'shaun'
+};
